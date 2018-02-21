@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mi primer proyecto</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="required_name">El nombre es requerido</string>
+    <string name="abrir_pantalla">abrir nueva ventana</string>
+
+</resources>
