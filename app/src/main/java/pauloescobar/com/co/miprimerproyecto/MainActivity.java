@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pauloescobar.com.co.miprimerproyecto.DTO.PersonaDTO;
 
 public class MainActivity extends AppCompatActivity {
 
+    PersonaDTO persona = new PersonaDTO();
     @BindView(R.id.txtName)
     EditText txtName;
     @BindView(R.id.btnAceptar)
@@ -30,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
     public void btnAceptarOnClick(View view){
         String nombre= txtName.getText().toString();
         if(!"".equals(nombre)){ //esto significa que el nombre no viene null
-                String messaje="hola".concat(txtName.getText().toString());
-                Toast.makeText(getApplicationContext(),messaje,Toast.LENGTH_SHORT).show();
+            persona.setNombre(nombre);
+            String messaje="hola".concat(txtName.getText().toString());
+            Toast.makeText(getApplicationContext(),messaje,Toast.LENGTH_SHORT).show();
         }
         else{
             txtName.setError(getString(R.string.required_name));
@@ -39,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void btnAbrirPantalla(View view)
     {
+
         Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+        intent.putExtra("nombre", persona);
         startActivity(intent);
     }
 }
